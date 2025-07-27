@@ -4,17 +4,21 @@ FROM node:18
 # Set working directory
 WORKDIR /app
 
-# Copy everything
+# Copy package files first for better cache
+COPY package*.json ./
+
+# Install dependencies (including typescript)
+RUN npm install
+RUN npm install -g typescript
+
+# Copy the rest of the files
 COPY . .
 
-# Install dependencies
-RUN npm install
-
 # Build TypeScript
-RUN npx tsc
+RUN tsc
 
-# Expose port (use your actual port if different)
+# Expose port
 EXPOSE 3001
 
-# Start app
+# Start the app
 CMD ["node", "dist/index.js"]
