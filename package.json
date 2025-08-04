@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js"
-  },
+  "dev": "ts-node index.ts",
+  "build": "tsc && prisma generate",
+  "start": "node dist/index.js"
+},
   "keywords": [],
   "author": "Chance Dickerson",
   "license": "ISC",
