@@ -14,3 +14,4 @@ model Job {
   status    String
   createdAt DateTime @default(now())
 }
+
