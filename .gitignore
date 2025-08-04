@@ -1,6 +1,9 @@
+# Node and environment
 node_modules
-# Keep environment variables out of version control
 .env
 
+# Build output
+/dist
+
+# Generated Prisma files (if used)
 /prisma/generated
-!prisma/schema.prisma
