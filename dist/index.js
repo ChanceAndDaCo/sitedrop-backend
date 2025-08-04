@@ -14,6 +14,13 @@ app.get("/", (req, res) => {
 app.get("/api/test", (req, res) => {
     res.json({ message: "Test endpoint works!" });
 });
+app.get("/api/jobs", (req, res) => {
+    res.json([
+        { id: 1, site: "123 Main St", material: "Drywall", status: "Scheduled" },
+        { id: 2, site: "456 Elm Ave", material: "PVC Pipe", status: "Out for delivery" },
+        { id: 3, site: "789 Oak Ct", material: "Tile", status: "Delivered" }
+    ]);
+});
 app.listen(PORT, () => {
     console.log(`SiteDrop Backend is listening on port ${PORT}`);
 });
