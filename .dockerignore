@@ -1,0 +1,26 @@
+# Ignore node_modules (already rebuilt in Docker)
+node_modules
+
+# Ignore local build output
+dist
+
+# Environment files (use build-time secrets or Railway env instead)
+.env
+
+# Logs
+*.log
+
+# OS and editor artifacts
+.DS_Store
+*.swp
+*.swo
+*.tmp
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Other local metadata
+.vscode
+*.zip
