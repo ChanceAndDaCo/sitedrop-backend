@@ -7,21 +7,21 @@ WORKDIR /app
 # Copy package files first for better cache
 COPY package*.json ./
 
-# Install dependencies
+# Install dependencies (including typescript + prisma)
 RUN npm install
 RUN npm install -g typescript
 
-# ✅ Generate Prisma Client
-RUN npx prisma generate --schema=prisma/schema.prisma
-
-# Copy the rest of the application files
+# Copy everything else
 COPY . .
 
-# Build the TypeScript code
+# Generate Prisma client
+RUN npx prisma generate --schema=prisma/schema.prisma
+
+# Build the TypeScript files
 RUN tsc
 
-# Expose the port your app runs on
+# Expose port (make sure this matches what your server uses)
 EXPOSE 3001
 
-# Start the application
+# Start the app
 CMD ["node", "dist/index.js"]
