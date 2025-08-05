@@ -2,7 +2,7 @@
 nixpkgsArchive = "https://github.com/NixOS/nixpkgs/archive/nixos-23.05.tar.gz"
 
 [phases.setup]
-nixPkgs = ["nodejs_18"]
+nixPkgs = ["nodejs_18", "nodePackages.prisma"]
 
 [phases.install]
 cmds = ["npm install"]
@@ -11,4 +11,5 @@ cmds = ["npm install"]
 cmds = ["npm run build"]
 
 [start]
-cmd = "npm start"
+cmd = "npm run start"
+
