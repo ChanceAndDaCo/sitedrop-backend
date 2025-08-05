@@ -18,10 +18,29 @@ COPY . .
 RUN npx prisma generate --schema=prisma/schema.prisma
 
 # Build the TypeScript files
-RUN tsc
+# Use official Node.js LTS image
+FROM node:18
 
-# Expose port (make sure this matches what your server uses)
+# Set working directory
+WORKDIR /app
+
+# Copy only package files first (leverage Docker cache)
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the app files
+COPY . .
+
+# Generate Prisma client (before build)
+RUN npx prisma generate --schema=prisma/schema.prisma
+
+# Build TypeScript
+RUN npm run build
+
+# Expose the app port
 EXPOSE 3001
 
-# Start the app
-CMD ["node", "dist/index.js"]
+# Run the app
+CMD ["npm", "start"]

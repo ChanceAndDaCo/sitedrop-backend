@@ -11,5 +11,6 @@ cmds = ["npm install"]
 cmds = ["npm run build"]
 
 [start]
-cmd = "npm run start"
+cmd = "npm start"
+
 

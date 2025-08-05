@@ -3,21 +3,21 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-	"dev": "ts-node index.ts",
-	"build": "prisma generate --schema=prisma/schema.prisma && tsc",
-	"start": "node dist/index.js",
-	"postinstall": "prisma generate --schema=prisma/schema.prisma"
-},
+    "dev": "ts-node index.ts",
+    "build": "npx prisma generate --schema=prisma/schema.prisma && tsc",
+    "start": "node dist/index.js",
+    "postinstall": "npx prisma generate --schema=prisma/schema.prisma"
+  },
   "keywords": [],
   "author": "Chance Dickerson",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.13.0",
     "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "ts-node": "^10.9.1"
+    "express": "^4.18.2"
   },
   "devDependencies": {
+    "ts-node": "^10.9.1",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.21",
     "@types/node": "^20.6.2",

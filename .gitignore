@@ -1,9 +1,16 @@
-# Node and environment
-node_modules
+# Node modules and environment variables
+node_modules/
 .env
 
 # Build output
-/dist
+dist/
 
-# Generated Prisma files (if used)
-/prisma/generated
+# Prisma generated files (if applicable)
+prisma/generated/
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
